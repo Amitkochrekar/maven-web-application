@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Releases Nexus Repository</name>
-	      <url>http://172.31.21.221:9980/mithuntechnologies/repository/hdfcbank-release/</url>
+	      <url>http://172.31.5.173:8080/amitkochrekar/repository/Axis-bank-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Mithun Technologies Snapshot Nexus Repository </name>
-	      <url>http://172.31.21.221:9980/mithuntechnologies/repository/hdfacbank-snapshot/</url>
+	      <url>http://172.31.5.173:8080/amitkochrekar/repository/Axis-bank-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
