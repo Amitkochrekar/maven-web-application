@@ -19,7 +19,7 @@ git branch: 'development', credentialsId: 'e3321f8e-046d-4558-aa30-ebddcfb80105'
 }
 
 stage('Build'){
-sh "${mavenHome}/bin/mvn clean PACK "
+sh "${mavenHome}/bin/mvn clean package "
 }
 /*
 stage('ExecuteSonarQubeReport'){
@@ -72,5 +72,5 @@ def sendSlackNotifications(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend (color: colorCode, message: summary )
+  slackSend (color: colorCode, message: summary, channel: #axis-bank )
 }
