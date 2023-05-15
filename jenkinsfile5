@@ -1,0 +1,27 @@
+node{
+    echo "Branch name is : ${env.BRANCH_NAME}"
+    echo "BUILD nUMBER is : ${env.BUILD_NUMBER}"
+    echo "JOB name is : ${env.JOB_NAME}"
+    echo "JENKINS HOME DIR is : ${env.JENKINS_HOME}"
+    echo "NODE name is : ${env.NODE_NAME}"
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), pipelineTriggers([pollSCM('* * * * *')])])
+    
+    def mavenHome = tool name: "maven3.8.5"
+    stage('CheckOutCode'){
+        git branch: 'development', credentialsId: 'ba32d96f-db4a-46dc-9694-4c8edf658f18', url: 'https://github.com/Amitkochrekar/maven-web-application.git'
+    }
+    stage('Build'){
+         sh "${mavenHome}/bin/mvn clean package"
+    }
+     /*   stage('ExecuteSonarQubeReport'){
+       sh "${mavenHome}/bin/mvn clean sonar:sonar" 
+    }
+            stage('UploaArtifactsToNexus'){
+       sh "${mavenHome}/bin/mvn clean deploy" 
+    }
+        stage('DeployToTomcat'){
+        sshagent(['7f8daf5a-7bca-4710-9be1-ddf328c01e36']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@172.31.39.154:/opt/apache-tomcat-9.0.74/webapps"
+}
+    } */
+}
