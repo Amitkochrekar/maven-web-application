@@ -1,4 +1,4 @@
-node{
+node('sbibanknode'){
     echo "Branch name is : ${env.BRANCH_NAME}"
     echo "BUILD nUMBER is : ${env.BUILD_NUMBER}"
     echo "JOB name is : ${env.JOB_NAME}"
