@@ -5,6 +5,11 @@ metadata:
  namespace: qa-ns
 spec:
  replicas: 2
+ strategy:
+  type: RollingUpdate
+  rollingUpdate:
+   maxSurge: 2
+   maxUnavailabe: 1
  selector:
   matchLabels:
    app: mavenwebapplication
